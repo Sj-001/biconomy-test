@@ -16,7 +16,7 @@ async function main() {
   // We get the contract to deploy
   const MyContract = await hre.ethers.getContractFactory("MyContract");
   const contract = await MyContract.deploy(
-    "0xFD4973FeB2031D4409fB57afEE5dF2051b171104"
+    "0xF82986F574803dfFd9609BE8b9c7B92f63a1410E"
   );
 
   await contract.deployed();

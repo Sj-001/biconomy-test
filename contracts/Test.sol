@@ -11,13 +11,15 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 contract MyContract is ERC2771Context, Ownable{
     using Counters for Counters.Counter;
     Counters.Counter public _tokenIdTracker;
+
+    address public trustedForwarder;
     /** 
      * Set the trustedForwarder address either in constructor or 
      * in other init function in your contract
      */ 
 // OR constructor(address _trustedForwarder) public ERC2771Context(_trustedForwarder)
     constructor(address _trustedForwarder)  ERC2771Context(_trustedForwarder){
-        
+        trustedForwarder = _trustedForwarder;
     }
 
     function _msgSender() internal view  override(ERC2771Context, Context) returns (address sender) {
